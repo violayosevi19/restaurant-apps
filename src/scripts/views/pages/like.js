@@ -17,11 +17,6 @@ const Like = {
     restos.forEach((resto) => {
       restoContainer.innerHTML += ListRestoItemTemplate(resto);
     });
-
-    // let html;
-    // if (!restos) {
-    //   html = '<div class="restos_not__found">Resto tidak ditemukan</div>';
-    // }
   },
 };
 

@@ -44,19 +44,22 @@ const Detail = {
     const inputName = document.querySelector('#nama');
     const inputReview = document.querySelector('#review');
     const buttonSubmit = document.querySelector('#submit');
+    if (navigator.onLine) {
+      buttonSubmit.addEventListener('click', function() {
+        const review = {
+          id: url.id,
+          name: inputName.value,
+          review: inputReview.value,
+        };
 
-    buttonSubmit.addEventListener('click', function() {
-      const review = {
-        id: url.id,
-        name: inputName.value,
-        review: inputReview.value,
-      };
-
-      TheRestoDbSource.reviewResto(review);
-      inputName.value = '';
-      inputReview.value = '';
-      alert('review berhasil dikirim');
-    });
+        TheRestoDbSource.reviewResto(review);
+        inputName.value = '';
+        inputReview.value = '';
+        alert('review berhasil dikirim');
+      });
+    } else {
+      alert('Sorry you can not add review because you are offline');
+    }
   },
 };
 
